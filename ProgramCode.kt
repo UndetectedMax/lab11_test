@@ -1,6 +1,6 @@
-//Приклад взаємодіїкористувача з базою даних
+// Приклад взаємодіїкористувача з базою даних
 
-//Класс-Entity,який представляє об'єкт запису витрати для взаємодією з базою даних
+// Класс-Entity,який представляє об'єкт запису витрати для взаємодією з базою даних
 @Parcelize
 data class ExpenseRecord(
     var expenseCode: String = "", // Унікальний код витрати
@@ -32,7 +32,7 @@ class PiggyBank : AppCompatActivity() {
     private lateinit var binding: ActivityPiggybankBinding
     private var balance = 8200.00 // Початковий баланс
     private var User = "Maksym" // Ім'я користувача
-    private var repository = ExpenseRecordRepository()//об'єкт репозиторію
+    private var repository = ExpenseRecordRepository()// об'єкт репозиторію
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class PiggyBank : AppCompatActivity() {
 
         // Обробник натискання на кнопку для введення витрати
         binding.expenceButton.setOnClickListener {
-            //чи поля порожні
+            // чи поля порожні
             if (binding.moneySpent.text.toString().isNotBlank() ||
                 binding.purposeSpent.text.toString().isNotBlank() ||
                 binding.dateSpent.text.toString().isNotBlank()
@@ -62,11 +62,11 @@ class PiggyBank : AppCompatActivity() {
     private fun sendExpenseRecord(dateSpent: String, moneySpent: String, purposeSpent: String) {
         // Перевіряємо введені дані та виконуємо відповідні дії
         when (checkData(dateSpent, moneySpent, purposeSpent)) {
-            //всі дані введені коректно
+            // всі дані введені коректно
             1 -> {
                 val expenseCode = Random.nextInt(1000000000).toString()
                 val userName = User
-                //створюємо об'єкт витрати
+                // створюємо об'єкт витрати
                 val exp = ExpenseRecord(
                     expenseCode,
                     purposeSpent,
@@ -74,7 +74,7 @@ class PiggyBank : AppCompatActivity() {
                     moneySpent.toDouble(),
                     userName
                 )
-                //збережиємо чи оновлюємо об'єкт в базі даних через репозиторій
+                // збережиємо чи оновлюємо об'єкт в базі даних через репозиторій
                 repository.createOrUpdateRecord(exp)
 
                 // Відображаємо діалогове вікно з підтвердженням запису витрати
@@ -85,17 +85,17 @@ class PiggyBank : AppCompatActivity() {
                     }
                     .show()
             }
-            //Гроші введені невірно
+            // Гроші введені невірно
             -1 -> {
                 val message = "Поле грошей не відповідає умовам (або не є числом або є від'ємним числом)"
                 displayErrorMessage(message)
             }
-            //Дата введена невірно
+            // Дата введена невірно
             -2 -> {
                 val message = "Дата не відповідає умовам (Більша за поточну)"
                 displayErrorMessage(message)
             }
-            //Ціль витрати введена невірно
+            // Ціль витрати введена невірно
             -3 -> {
                 val message = "Ціль витрати не відповідає умовам (довжина більше 50)"
                 displayErrorMessage(message)
@@ -109,21 +109,21 @@ class PiggyBank : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy")
         val date = dateFormat.parse(dateSpent)
         val currentDate = Date()
-        //перевірка веденої користувачем дати
+        // перевірка веденої користувачем дати
         try {
-            //перевірка на від'ємність
+            // перевірка на від'ємність
             if (moneySpent.toDouble() < 0) {
                 return -1
             }
-            //перевірка на введення не числа
+            // перевірка на введення не числа
         } catch (_: NumberFormatException) {
             return -1
         }
-        //дата більша за поточну
+        // дата більша за поточну
         if (date!! >= currentDate) {
             return -2 // Дата не відповідає умові 2.
         }
-        //ціль запиту завдовжки більше ніж 50 символів
+        // ціль запиту завдовжки більше ніж 50 символів
         if (purposeSpent.length > 50) {
             return -3 // Ціль витрати не відповідає умові 4.
         }
