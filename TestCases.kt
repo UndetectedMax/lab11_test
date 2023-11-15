@@ -8,9 +8,6 @@ data class ExpenseRecord(
 object TestCases {
   
   fun checkData(dateSpent: String, moneySpent: String, purposeSpent: String): Int {
-        val dateFormat = SimpleDateFormat("dd.MM.yyyy")
-        val date = dateFormat.parse(dateSpent)
-        val currentDate = Date()
         try {
             if (moneySpent.toDouble() < 0) {
                 return -1
@@ -43,12 +40,12 @@ object TestCases {
           if (result2 == -1) "Passed = -1" else "Failed"
       }")
 
-      val result4 = authenticateUser("23.12.2023", "150.0", "Томати 2 кг")
+      val result4 = checkData("23.12.2023", "150.0", "Томати 2 кг")
       println("TC4: 23.12.2023,150.0,Томати 2 кг ${
           if (result3 == -2) "Passed = -2" else "Failed"
       }")
 
-      val result5 = authenticateUser("23.10.2023", "150", "")
+      val result5 = checkData("23.10.2023", "150", "")
       println("TC5: 23.10.2023, 150,  ${
           if (result4 == -3) "Passed = -3" else "Failed"
       }")
