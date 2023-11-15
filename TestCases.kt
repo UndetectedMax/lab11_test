@@ -3,13 +3,6 @@ import java.lang.NumberFormatException
 import java.text.SimpleDateFormat
 import java.util.Date
 
-data class ExpenseRecord(
-    var expenseCode:String,
-    var expensePurpose:String,
-    var expenseDate:String,
-    var expenseSpentMoney:Double,
-    var userName:String)
-
 object TestCases {
   
   fun checkData(dateSpent: String, moneySpent: String, purposeSpent: String): Int {
