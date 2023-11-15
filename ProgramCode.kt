@@ -12,8 +12,8 @@ data class ExpenseRecord(
 
 // Репозиторій, який взаємодіє з базою даних Firebase для збереження, оновлення та видалення записів користувача про витрату
 class ExpenseRecordRepository {
-    private val database = Firebase.database//об'єкт бази даних
-    private val expenseDBRef = database.getReference("expense_records")//беремо дані саме з цієї таблиці expense_records
+    private val database = Firebase.database // об'єкт бази даних
+    private val expenseDBRef = database.getReference("expense_records") // беремо дані саме з цієї таблиці expense_records
 
     // Метод для створення або оновлення запису про витрату в базі даних
     fun createOrUpdateRecord(expRec: com.example.lab9tspp1.models.ExpenseRecord) {
@@ -27,12 +27,14 @@ class ExpenseRecordRepository {
         expenseNodeRef.removeValue()
     }
 }
+
 // Клас для описування логіки взаємодії користувача з додатком, включаючи реєстрацію користувачів, перевірку їх даних і збереження їх у базі даних Firebase.
+
 class PiggyBank : AppCompatActivity() {
     private lateinit var binding: ActivityPiggybankBinding
     private var balance = 8200.00 // Початковий баланс
     private var User = "Maksym" // Ім'я користувача
-    private var repository = ExpenseRecordRepository()// об'єкт репозиторію
+    private var repository = ExpenseRecordRepository() // об'єкт репозиторію
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
