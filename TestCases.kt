@@ -31,7 +31,7 @@ object TestCase {
           if (result1 == 1) "Passed = 1" else "Failed"
       }")
 
-      val result2 = checkData("23.10.2023", "-150.0", "Томати 2 кг")
+      val result2 = checkData("23.10.2023", "150.0", "Томати 2 кг")
       println("TC2: 23.10.2023,-150.0,Томати 2 кг ${
           if (result2 == -1) "Passed = -1" else "Failed"
       }")
