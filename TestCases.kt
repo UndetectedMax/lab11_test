@@ -44,7 +44,7 @@ object TestCases {
               
       val result3 = checkData("23.10.2023", "арарара", "Томати 2 кг")
       println("TC3: 23.10.2023,арарара,Томати 2 кг ${
-          if (result2 == -1) "Passed = -1" else "Failed"
+          if (result3 == -1) "Passed = -1" else "Failed"
       }")
 
       val result4 = checkData("23.12.2023", "150.0", "Томати 2 кг")
