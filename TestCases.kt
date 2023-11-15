@@ -16,7 +16,7 @@ object TestCase {
         } catch (_: NumberFormatException) {
             return -1
         }
-        if (date!! > currentDate) {
+        if (date > currentDate) {
             return -2 
         }
         if (purposeSpent.length > 50 || purposeSpent.isEmpty()) {
@@ -44,12 +44,12 @@ object TestCase {
 
       val result4 = checkData("23.12.2024", "150.0", "Томати 2 кг")
       println("TC4: 23.12.2024,150.0,Томати 2 кг ${
-          if (result3 == -2) "Passed = -2" else "Failed"
+          if (result4 == -2) "Passed = -2" else "Failed"
       }")
 
       val result5 = checkData("23.10.2023", "150", "рррррррррррррррррррррррррррррррррррррррррррррррррррррррррр")
       println("TC5: 23.10.2023, 150,  ${
-          if (result4 == -3) "Passed = -3" else "Failed"
+          if (result5 == -3) "Passed = -3" else "Failed"
       }")
     
       if (1 != result1 || -1 != result2 || -1 != result3 || -2 != result4 || -3 != result5) {
