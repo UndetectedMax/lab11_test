@@ -8,17 +8,19 @@ jobs:
   TestCases:
     runs-on: ubuntu-latest
     steps:
-      - name: Выгрузка
+      - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Настройка JDK 11
+
+      - name: Setup JDK 11
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
           java-version: '11'
 
-      - name: Компиляция и Запуск
+      - name: Compile and Run
         run: |
-              cd $GITHUB_WORKSPACE/
-              kotlinc TestCases.kt -include-runtime -d out/app.jar
-              java -jar out/app.jar
+          cd $GITHUB_WORKSPACE/
+          kotlinc TestCases.kt -include-runtime -d out/app.jar
+          echo "Main-Class: com.example.lab9tspp1.TestCases" > MANIFEST.MF
+          jar cfm out/app.jar MANIFEST.MF -C out/ .
+          java -jar out/app.jar
