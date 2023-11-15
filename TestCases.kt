@@ -31,7 +31,7 @@ object TestCases {
         return 1
     }
   
-  fun main(args: Array<String>) {
+  fun main() {
       val result1 = checkData("23.10.2023", "150.0", "Томати 2 кг")
       println("TC1: 23.10.2023,150.0,Томати 2 кг ${
           if (result1 == 1) "Passed = 1" else "Failed"
