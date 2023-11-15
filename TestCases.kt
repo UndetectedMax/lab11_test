@@ -4,11 +4,11 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 data class ExpenseRecord(
-    var expenseCode:String="",
-    var expensePurpose:String = "",
-    var expenseDate:String="",
+    var expenseCode:String,
+    var expensePurpose:String,
+    var expenseDate:String,
     var expenseSpentMoney:Double,
-    var userName:String = "")
+    var userName:String)
 
 object TestCases {
   
