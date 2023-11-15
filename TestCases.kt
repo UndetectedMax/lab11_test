@@ -1,3 +1,7 @@
+import java.lang.NumberFormatException
+import java.text.SimpleDateFormat
+import java.util.Date
+
 data class ExpenseRecord(
     var expenseCode:String="",
     var expensePurpose:String = "",
@@ -8,6 +12,9 @@ data class ExpenseRecord(
 object TestCases {
   
   fun checkData(dateSpent: String, moneySpent: String, purposeSpent: String): Int {
+        val dateFormat = SimpleDateFormat("dd.MM.yyyy")
+        val date = dateFormat.parse(dateSpent)
+        val currentDate = Date()
         try {
             if (moneySpent.toDouble() < 0) {
                 return -1
