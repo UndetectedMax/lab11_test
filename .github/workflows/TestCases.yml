@@ -21,6 +21,4 @@ jobs:
         run: |
               cd $GITHUB_WORKSPACE/
               kotlinc TestCases.kt -include-runtime -d out/app.jar
-              echo "Main-Class: TestCases.kt" > out/manifest.txt
-              jar cfm out/app.jar out/manifest.txt -C . TestCases.kt
               java -jar out/app.jar
