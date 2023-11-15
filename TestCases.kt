@@ -42,12 +42,12 @@ object TestCase {
           if (result3 == -1) "Passed = -1" else "Failed"
       }")
 
-      val result4 = checkData("23.12.2023", "150.0", "Томати 2 кг")
-      println("TC4: 23.12.2023,150.0,Томати 2 кг ${
+      val result4 = checkData("23.12.2024", "150.0", "Томати 2 кг")
+      println("TC4: 23.12.2024,150.0,Томати 2 кг ${
           if (result3 == -2) "Passed = -2" else "Failed"
       }")
 
-      val result5 = checkData("23.10.2023", "150", "")
+      val result5 = checkData("23.10.2023", "150", "рррррррррррррррррррррррррррррррррррррррррррррррррррррррррр")
       println("TC5: 23.10.2023, 150,  ${
           if (result4 == -3) "Passed = -3" else "Failed"
       }")
