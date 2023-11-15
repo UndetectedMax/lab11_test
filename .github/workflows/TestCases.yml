@@ -20,5 +20,5 @@ jobs:
       - name: Компиляция и Запуск
         run: |
               cd $GITHUB_WORKSPACE/
-              kotlinc TestCases.kt -include-runtime -d out/app.jar -m TestCases
+              kotlinc TestCases.kt -include-runtime -d out/app.jar
               java -jar out/app.jar
