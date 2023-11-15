@@ -58,8 +58,8 @@ object TestCases {
           if (result4 == -3) "Passed = -3" else "Failed"
       }")
     
-      if (1 != result1 || -1 != result2 || -1 != result3|| -2 != result4 || -3 != result5) {
-            System.exit(-1)
-      }
-   }
+    if (1 != result1 || -1 != result2 || -1 != result3 || -2 != result4 || -3 != result5) {
+    System.exit(-1)
+}
+}
 }
