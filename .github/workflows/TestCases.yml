@@ -1,5 +1,4 @@
-name: TestCases
-
+name: Test Cases
 on:
   push:
     branches: Lab11
@@ -10,17 +9,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup JDK 17
+      
+      - name: Set up JDK 11
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '17'
+          java-version: '11'
 
-      - name: Compile and Run
+      - name: Compile & Execute
         run: |
           cd $GITHUB_WORKSPACE/
-          kotlinc TestCases.kt -include-runtime -d out/app.jar
-          echo "Main-Class:lab11-test/TestCases.kt" > MANIFEST.MF
-          jar cfm out/app.jar MANIFEST.MF -C out/ .
-          java -jar out/app.jar
+          kotlinc TestCase.kt -include-runtime -d app.jar
+          java -jar app.jar
