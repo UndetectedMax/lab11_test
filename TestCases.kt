@@ -2,15 +2,19 @@ package com.example.lab9tspp1
 import java.lang.NumberFormatException
 import java.text.SimpleDateFormat
 import java.util.Date
+data class ExpenseRecord(
+    var expensePurpose:String,
+    var expenseDate:String,
+    var expenseSpentMoney:Double)
 
 object TestCases {
   
-  fun checkData(dateSpent: String, moneySpent: String, purposeSpent: String): Int {
+  fun checkData(expenseDate: String, expenseSpentMoney: String, expensePurpose: String): Int {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy")
-        val date = dateFormat.parse(dateSpent)
+        val date = dateFormat.parse(expenseDate)
         val currentDate = Date()
         try {
-            if (moneySpent.toDouble() < 0) {
+            if (expenseSpentMoney.toDouble() < 0) {
                 return -1
             }
         } catch (_: NumberFormatException) {
@@ -19,7 +23,7 @@ object TestCases {
         if (date!! > currentDate) {
             return -2 // Дата не відповідає умові 2.
         }
-        if (purposeSpent.length > 50 || purposeSpent.isEmpty()) {
+        if (expensePurpose.length > 50 || expensePurpose.isEmpty()) {
             return -3 // Ціль витрати не відповідає умові 4.
         }
         return 1
@@ -52,7 +56,7 @@ object TestCases {
       }")
     
     if (1 != result1 || -1 != result2 || -1 != result3 || -2 != result4 || -3 != result5) {
-    System.exit(-1)
+        System.exit(-1)
+    }
 }
-}
-}
+              }
