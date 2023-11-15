@@ -41,7 +41,7 @@ class PiggyBank : AppCompatActivity() {
         binding = ActivityPiggybankBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.userBalance.text = "Залишок: ${balance} грн"
+        binding.userBalance.text = "Залишок: $balance грн"
 
         // Обробник натискання на кнопку для введення витрати
         binding.expenceButton.setOnClickListener {
