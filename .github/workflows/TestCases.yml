@@ -18,8 +18,6 @@ jobs:
 
       - name: Compile & Execute
         run: |
-              cd $GITHUB_WORKSPACE/
-              kotlinc TestCases.kt -include-runtime -d app.jar
-              echo "Main-Class: TestCases" > manifest.txt
-              jar cfm app.jar manifest.txt TestCases*.class
-              java -jar app.jar
+                    cd $GITHUB_WORKSPACE/
+                    kotlinc TestCases.kt -include-runtime -d out/app.jar
+                    java -jar out/app.jar
