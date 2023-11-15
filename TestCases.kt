@@ -1,4 +1,3 @@
-
 import java.lang.NumberFormatException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -49,7 +48,7 @@ object TestCase {
 
       val result5 = checkData("23.10.2023", "150", "рррррррррррррррррррррррррррррррррррррррррррррррррррррррррр")
       println("TC5: 23.10.2023, 150,  ${
-          if (result5 == -3) "Passed = -3" else "Failed"
+          if (result4 == -3) "Passed = -3" else "Failed"
       }")
     
       if (1 != result1 || -1 != result2 || -1 != result3 || -2 != result4 || -3 != result5) {
