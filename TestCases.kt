@@ -1,35 +1,32 @@
-package com.example.lab9tspp1
+package com.nuop.tscp
 import java.lang.NumberFormatException
 import java.text.SimpleDateFormat
 import java.util.Date
-data class ExpenseRecord(
-    var expensePurpose:String,
-    var expenseDate:String,
-    var expenseSpentMoney:Double)
 
-object TestCases {
+object TestCase {
   
-  fun checkData(expenseDate: String, expenseSpentMoney: String, expensePurpose: String): Int {
+  fun checkData(dateSpent: String, moneySpent: String, purposeSpent: String): Int {
         val dateFormat = SimpleDateFormat("dd.MM.yyyy")
-        val date = dateFormat.parse(expenseDate)
+        val date = dateFormat.parse(dateSpent)
         val currentDate = Date()
         try {
-            if (expenseSpentMoney.toDouble() < 0) {
+            if (moneySpent.toDouble() < 0) {
                 return -1
             }
         } catch (_: NumberFormatException) {
             return -1
         }
         if (date!! > currentDate) {
-            return -2 // Дата не відповідає умові 2.
+            return -2 
         }
-        if (expensePurpose.length > 50 || expensePurpose.isEmpty()) {
-            return -3 // Ціль витрати не відповідає умові 4.
+        if (purposeSpent.length > 50 || purposeSpent.isEmpty()) {
+            return -3 
         }
         return 1
     }
   
-  fun main() {
+  @JvmStatic
+  fun main(args: Array<String>) {
       val result1 = checkData("23.10.2023", "150.0", "Томати 2 кг")
       println("TC1: 23.10.2023,150.0,Томати 2 кг ${
           if (result1 == 1) "Passed = 1" else "Failed"
@@ -55,8 +52,8 @@ object TestCases {
           if (result4 == -3) "Passed = -3" else "Failed"
       }")
     
-    if (1 != result1 || -1 != result2 || -1 != result3 || -2 != result4 || -3 != result5) {
+      if (1 != result1 || -1 != result2 || -1 != result3 || -2 != result4 || -3 != result5) {
         System.exit(-1)
-    }
+      }
+   }
 }
-              }
