@@ -1,4 +1,4 @@
-name: Тестовые Сценарии
+name: TestCases
 
 on:
   push:
